@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0'">
+<title>Untuk Vania ❤️</title>
+
+<style>
+
+body{
+background:linear-gradient(135deg,#ffb6c1,#ffd6e8,#c8f7c5);
+font-family:Arial,sans-serif;
+overflow-x:hidden;
+color:white;
+text-align:center;
+margin:0;
+}
+
+#loading{
+position:fixed;
+width:100%;
+height:100vh;
+background:#ff69b4;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:40px;
+z-index:9999;
+}
+
+section{
+padding:80px 20px;
+}
+
+.card{
+max-width:900px;
+margin:auto;
+background:rgba(255,255,255,.2);
+backdrop-filter:blur(10px);
+padding:30px;
+border-radius:25px;
+}
+
+button{
+padding:15px 30px;
+border:none;
+border-radius:40px;
+cursor:pointer;
+font-size:18px;
+}
+
+.heart{
+position:fixed;
+top:-20px;
+pointer-events:none;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+
+h1{
+font-size:60px;
+}
+
+h2{
+font-size:40px;
+}
+
+.reason{
+background:white;
+color:#ff4f81;
+padding:15px;
+border-radius:15px;
+margin:10px;
+}
+
+#gameArea{
+height:400px;
+background:white;
+border-radius:20px;
+position:relative;
+margin-top:20px;
+}
+
+#hiddenHeart{
+position:absolute;
+font-size:40px;
+cursor:pointer;
+}
+
+#noBtn{
+position:absolute;
+}
+
+</style>
+
+</head>
+<body>
+
+<div id="loading">
+❤️ Loading Untuk Vania ❤️
+</div>
+
+<section>
+<h1>❤️ Untuk Vania ❤️</h1>
+<h3>Dari Ale 💚</h3>
+<p>Website ini dibuat khusus untuk seseorang yang spesial.</p>
+</section>
+
+<section>
+<div class="card">
+<h2>💌 Surat Untuk Vania</h2>
+
+<p style="line-height:2;font-size:20px;">
+
+Hai Vania ❤️
+
+Terima kasih karena sudah menjadi seseorang yang spesial.
+
+Mungkin website ini sederhana,
+tetapi setiap bagian dibuat dengan niat baik.
+
+Semoga kamu selalu bahagia,
+selalu sehat,
+dan selalu dikelilingi hal-hal baik.
+
+💚
+
+</p>
+</div>
+</section>
+
+<section>
+<div class="card">
+<h2>⏳ Sejak 18 Februari 2026</h2>
+
+<h1 id="counter">
+Loading...
+</h1>
+
+</div>
+</section>
+
+<section>
+<div class="card">
+<h2>🌹 Kenapa Vania Spesial</h2>
+
+<div id="reasons"></div>
+
+</div>
+</section>
+<section>
+<div class="card">
+
+<h2>🎮 Game 1 - Mau Terus Jadi Orang Spesialku?</h2>
+
+<div style="height:220px;position:relative;">
+
+<button onclick="yesAnswer()">
+IYA ❤️
+</button>
+
+<button id="noBtn">
+TIDAK 😆
+</button>
+
+</div>
+
+<h3 id="answer"></h3>
+
+</div>
+</section>
+
+
+<section>
+<div class="card">
+
+<h2>🎯 Game 2 - Cari Hati</h2>
+
+<p>Klik hati sampai skor 10 ❤️</p>
+
+<div id="gameArea">
+
+<div id="hiddenHeart">
+❤️
+</div>
+
+</div>
+
+<h3 id="score">
+Skor : 0
+</h3>
+
+</div>
+</section>
+
+
+<section>
+<div class="card">
+
+<h2>🔢 Game 3 - Tebak Angka</h2>
+
+<p>Tebak angka 1 - 10</p>
+
+<input
+id="guess"
+type="number"
+min="1"
+max="10">
+
+<button onclick="checkGuess()">
+Tebak
+</button>
+
+<h3 id="guessResult"></h3>
+
+</div>
+</section>
+
+
+<section>
+<div class="card">
+
+<h2>✨ Pesan Untuk Vania ✨</h2>
+
+<p id="typingText"
+style="font-size:22px;line-height:2;">
+</p>
+
+</div>
+<section class="hidden-scroll"></section>
+
+
+<section>
+<div class="card">
+
+<h2>🎆 Hadiah Untukmu 🎆</h2>
+
+<button onclick="showLove()">
+Klik Aku ❤️
+</button>
+
+<h2 id="loveMessage"></h2>
+
+</div>
+</section>
+
+
+<section style="
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;">
+
+<h1 style="font-size:80px;">
+❤️ Vania ❤️
+</h1>
+
+<h2>
+Terima kasih sudah membuka website ini
+</h2>
+
+<p style="
+max-width:700px;
+font-size:22px;
+line-height:2;">
+
+Semoga hari-harimu selalu dipenuhi
+kebahagiaan, kesehatan,
+dan banyak hal baik.
+
+💚 Dari Ale 💚
+
+</p>
+
+ <section class="hidden-scroll"></section>
+
+<script>
+
+// loading
+setTimeout(()=>{
+document.getElementById("loading").style.display="none";
+},2500);
+
+// hujan hati
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=
+(Math.random()*25+15)+"px";
+
+heart.style.animationDuration=
+(Math.random()*3+3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+
+}
+
+setInterval(createHeart,250);
+
+
+// counter
+
+const startDate =
+new Date("2026-02-18");
+
+setInterval(()=>{
+
+let now=new Date();
+
+let diff=now-startDate;
+
+let days=
+Math.floor(diff/(1000*60*60*24));
+
+document.getElementById("counter")
+.innerHTML=
+days+" Hari ❤️";
+
+},1000);
+
+</script>
+<script>
+
+// =====================
+// ALASAN TANPA DUPLIKAT
+// =====================
+
+const alasanList = [
+
+"❤️ Karena senyummu membuat hari lebih indah",
+"💚 Karena kamu selalu istimewa",
+"🌹 Karena kamu membuat banyak kenangan indah",
+"✨ Karena kamu punya cara unik membuat orang tersenyum",
+"🥰 Karena kamu baik hati",
+"💖 Karena kamu berharga",
+"🌸 Karena kamu membawa kebahagiaan",
+"🌈 Karena kamu membuat dunia terasa lebih berwarna",
+"⭐ Karena kamu luar biasa",
+"💝 Karena kamu pantas mendapatkan yang terbaik",
+"🍀 Karena kamu membawa energi positif",
+"🌷 Karena kamu unik",
+"🎀 Karena tawamu menyenangkan",
+"🦋 Karena kamu tidak tergantikan",
+"🌺 Karena kamu membuat hari biasa menjadi spesial",
+"💕 Karena kamu membuat orang nyaman",
+"💞 Karena kamu berarti",
+"🌻 Karena kamu kuat",
+"💗 Karena kamu selalu dikenang",
+"🌟 Karena kamu adalah Vania"
+
+];
+
+const reasons =
+document.getElementById("reasons");
+
+alasanList.forEach(item=>{
+
+let div =
+document.createElement("div");
+
+div.className="reason";
+
+div.innerHTML=item;
+
+reasons.appendChild(div);
+
+});
+
+
+// =====================
+// GAME TOMBOL KABUR
+// =====================
+
+const noBtn =
+document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover",()=>{
+
+noBtn.style.left =
+Math.random()*70+"%";
+
+noBtn.style.top =
+Math.random()*120+"px";
+
+});
+
+function yesAnswer(){
+
+document.getElementById("answer")
+.innerHTML=
+"❤️ YEAYYYY ❤️";
+
+}
+
+
+// =====================
+// GAME CARI HATI
+// =====================
+
+let score=0;
+
+const hiddenHeart =
+document.getElementById("hiddenHeart");
+
+function moveHeart(){
+
+hiddenHeart.style.left=
+Math.random()*85+"%";
+
+hiddenHeart.style.top=
+Math.random()*80+"%";
+
+}
+
+moveHeart();
+
+hiddenHeart.onclick=()=>{
+
+score++;
+
+document.getElementById("score")
+.innerHTML=
+"Skor : "+score;
+
+moveHeart();
+
+if(score===10){
+confetti();
+alert("🎉 Kamu Menang ❤️");
+
+}
+
+};
+
+
+// =====================
+// GAME TEBAK ANGKA
+// =====================
+
+const randomNumber =
+Math.floor(Math.random()*10)+1;
+
+function checkGuess(){
+
+const value =
+Number(document.getElementById("guess").value);
+
+if(value===randomNumber){
+
+document.getElementById("guessResult")
+.innerHTML=
+"🎉 Benar ❤️";
+confetti();
+}else{
+
+document.getElementById("guessResult")
+.innerHTML=
+"😆 Coba Lagi";
+
+}
+
+}
+
+
+// =====================
+// TYPING EFFECT
+// =====================
+
+const text =
+
+"Hai Vania ❤️ Terima kasih karena sudah menjadi seseorang yang spesial. Semoga kamu selalu sehat, bahagia, dan semua impianmu tercapai. Website sederhana ini dibuat khusus untukmu. 💚";
+
+let i=0;
+
+function typing(){
+
+if(i<text.length){
+
+document.getElementById("typingText")
+.innerHTML += text.charAt(i);
+
+i++;
+
+setTimeout(typing,40);
+
+}
+
+}
+
+typing();
+
+
+// =====================
+// HADIAH
+// =====================
+
+function showLove(){
+
+document.getElementById("loveMessage")
+.innerHTML=
+
+"❤️❤️❤️ ALE SAYANG VANIA ❤️❤️❤️";
+
+}
+
+</script>
+<script>
+
+// =====================
+// ANIMASI SCROLL
+// =====================
+
+const hiddenElements =
+document.querySelectorAll(".hidden-scroll");
+
+function showOnScroll(){
+
+hiddenElements.forEach(el=>{
+
+const top =
+el.getBoundingClientRect().top;
+
+const trigger =
+window.innerHeight - 100;
+
+if(top < trigger){
+
+el.classList.add("show-scroll");
+
+}
+
+});
+
+}
+
+window.addEventListener(
+"scroll",
+showOnScroll
+);
+
+showOnScroll();
+
+
+// =====================
+// KONFETI
+// =====================
+
+function confetti(){
+
+for(let i=0;i<80;i++){
+
+const item =
+document.createElement("div");
+
+item.classList.add("confetti");
+
+const icons =
+["🎉","🎊","💖","💚","❤️","✨","🌸"];
+
+item.innerHTML =
+icons[
+Math.floor(
+Math.random()*icons.length
+)
+];
+
+item.style.left =
+Math.random()*100+"vw";
+
+item.style.fontSize =
+(Math.random()*25+15)+"px";
+
+item.style.animationDuration =
+(Math.random()*3+2)+"s";
+
+document.body.appendChild(item);
+
+setTimeout(()=>{
+item.remove();
+},5000);
+
+}
+
+}
+
+
+</script>
+<style>
+    .confetti{
+position:fixed;
+top:-10px;
+font-size:20px;
+pointer-events:none;
+animation:confettiFall 4s linear forwards;
+z-index:999;
+}
+
+@keyframes confettiFall{
+
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:1;
+}
+
+100%{
+transform:translateY(110vh) rotate(720deg);
+opacity:0;
+}
+
+}
+
+.hidden-scroll{
+opacity:0;
+transform:translateY(80px);
+transition:all 1s ease;
+}
+
+.show-scroll{
+opacity:1;
+transform:translateY(0);
+}
+</style>
+<style>
+.confetti{
+position:fixed;
+top:-20px;
+pointer-events:none;
+z-index:9999;
+animation:confettiFall linear forwards;
+}
+
+@keyframes confettiFall{
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:1;
+}
+100%{
+transform:translateY(110vh) rotate(720deg);
+opacity:0;
+}
+}
+
+.hidden-scroll{
+opacity:0;
+transform:translateY(80px);
+transition:all 1s ease;
+}
+
+.show-scroll{
+opacity:1;
+transform:translateY(0);
+}
+</style>
+
+<script>
+
+// ====================
+// ANIMASI SCROLL
+// ====================
+
+const observer =
+new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show-scroll");
+
+}
+
+});
+
+},{
+threshold:0.15
+});
+
+document
+.querySelectorAll("section")
+.forEach(section=>{
+
+section.classList.add("hidden-scroll");
+
+observer.observe(section);
+
+});
+
+
+// ====================
+// KONFETI
+// ====================
+
+function confetti(){
+
+const simbol = [
+"🎉",
+"🎊",
+"❤️",
+"💚",
+"💖",
+"🌸",
+"✨",
+"🌹"
+];
+
+for(let i=0;i<100;i++){
+
+const item =
+document.createElement("div");
+
+item.className =
+"confetti";
+
+item.innerHTML =
+simbol[
+Math.floor(
+Math.random()*simbol.length
+)
+];
+
+item.style.left =
+Math.random()*100+"vw";
+
+item.style.fontSize =
+(Math.random()*25+15)+"px";
+
+item.style.animationDuration =
+(Math.random()*3+2)+"s";
+
+document.body.appendChild(item);
+
+setTimeout(()=>{
+
+item.remove();
+
+},5000);
+
+}
+
+}
+
+
+// ====================
+// TOMBOL IYA
+// ====================
+
+function yesAnswer(){
+
+document.getElementById("answer")
+.innerHTML =
+
+"❤️ YEAYYY ❤️";
+
+confetti();
+
+}
+
+
+// ====================
+// GAME HATI
+// ====================
+
+let 
+
+const hiddenHeart =
+document.getElementById(
+"hiddenHeart"
+);
+
+if(hiddenHeart){
+
+hiddenHeart.onclick=()=>{
+
+score++;
+
+document.getElementById("score")
+.innerHTML=
+"Skor : "+score;
+
+hiddenHeart.style.left=
+Math.random()*85+"%";
+
+hiddenHeart.style.top=
+Math.random()*80+"%";
+
+if(score>=10){
+
+confetti();
+
+alert(
+"🎉 Kamu Menang ❤️"
+);
+
+}
+
+};
+
+}
+
+
+// ====================
+// TEBAK ANGKA
+// ====================
+
+const angkaRahasia =
+Math.floor(
+Math.random()*10
+)+1;
+
+function checkGuess(){
+
+const nilai =
+Number(
+document.getElementById("guess")
+.value
+);
+
+if(nilai===angkaRahasia){
+
+document.getElementById(
+"guessResult"
+).innerHTML=
+
+"🎉 Benar ❤️";
+
+confetti();
+
+}else{
+
+document.getElementById(
+"guessResult"
+).innerHTML=
+
+"😆 Salah, coba lagi";
+
+}
+
+}
+
+</script>
+</body>
+</html>
